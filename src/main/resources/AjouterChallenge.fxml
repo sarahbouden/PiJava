@@ -1,0 +1,263 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.DatePicker?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.Separator?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.effect.DropShadow?>
+<?import javafx.scene.effect.Glow?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.paint.Color?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane prefHeight="759.0" prefWidth="856.0" style="-fx-background-color: #ffbe8a;" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Controllers.Challenge.AjouterChallenge">
+    <children>
+        <Pane layoutX="333.0" layoutY="143.0" prefHeight="511.0" prefWidth="379.0" style="-fx-background-color: #ffbc5a;">
+            <effect>
+                <DropShadow height="37.38" radius="15.850000000000001" width="28.02">
+                    <color>
+                        <Color opacity="0.8548632264137268" />
+                    </color>
+                </DropShadow>
+            </effect>
+            <children>
+                <Button layoutX="94.0" layoutY="370.0" mnemonicParsing="false" onAction="#AjouterCh" prefHeight="32.0" prefWidth="192.0" text="Ajouter Challenge" textFill="#577d8a">
+                    <effect>
+                        <DropShadow>
+                            <color>
+                                <Color red="0.9894737005233765" green="0.9164236783981323" blue="0.9051851630210876" />
+                            </color>
+                        </DropShadow>
+                    </effect>
+                    <font>
+                        <Font name="System Bold" size="14.0" />
+                    </font>
+                </Button>
+                <Label layoutX="92.0" layoutY="107.0" prefHeight="44.0" prefWidth="294.0" text="Ajouter Challenge" textAlignment="CENTER" textFill="#faf4ef">
+                    <font>
+                        <Font size="26.0" />
+                    </font>
+                    <effect>
+                        <Glow level="0.8" />
+                    </effect>
+                </Label>
+                <TextField fx:id="Titre" layoutX="60.0" layoutY="174.0" nodeOrientation="LEFT_TO_RIGHT" prefHeight="29.0" prefWidth="262.0" promptText="Titre">
+                    <font>
+                        <Font size="14.0" />
+                    </font>
+                </TextField>
+                <TextField fx:id="Objectifs" layoutX="59.0" layoutY="307.0" nodeOrientation="LEFT_TO_RIGHT" prefHeight="29.0" prefWidth="262.0" promptText="Objectif">
+                    <font>
+                        <Font size="14.0" />
+                    </font>
+                </TextField>
+                <Button layoutX="94.0" layoutY="422.0" mnemonicParsing="false" onAction="#AfficherCh" prefHeight="32.0" prefWidth="192.0" text="Afficher Liste" textFill="#577d8a">
+                    <effect>
+                        <DropShadow>
+                            <color>
+                                <Color red="0.9894737005233765" green="0.9164236783981323" blue="0.9051851630210876" />
+                            </color>
+                        </DropShadow>
+                    </effect>
+                    <font>
+                        <Font name="System Bold" size="14.0" />
+                    </font>
+                </Button>
+            <DatePicker fx:id="Date_Debut" layoutX="62.0" layoutY="221.0" prefHeight="25.0" prefWidth="262.0" promptText="Data_Debut" />
+            <DatePicker fx:id="Date_Fin" layoutX="62.0" layoutY="265.0" prefHeight="25.0" prefWidth="262.0" promptText="Date_Fin" />
+            </children>
+        </Pane>
+      <VBox layoutX="10.0" layoutY="3.0" prefHeight="771.0" prefWidth="223.0" style="-fx-background-color: #FFFFFF;" styleClass="white-background">
+         <children>
+            <Separator prefWidth="232.0" />
+            <VBox prefHeight="138.0" prefWidth="250.0">
+               <children>
+                  <Separator prefHeight="36.0" prefWidth="232.0" />
+                  <HBox alignment="TOP_CENTER" prefHeight="122.0" prefWidth="223.0" styleClass="mouse-moved">
+                     <children>
+                        <ImageView fitHeight="90.0" fitWidth="89.0" pickOnBounds="true" preserveRatio="true">
+                           <image>
+                              <Image url="@Icons/logo.png" />
+                           </image>
+                           <HBox.margin>
+                              <Insets top="20.0" />
+                           </HBox.margin>
+                        </ImageView>
+                     </children>
+                  </HBox>
+                  <HBox alignment="CENTER" prefHeight="100.0" prefWidth="200.0" />
+                  <Separator prefHeight="36.0" prefWidth="232.0" />
+               </children>
+            </VBox>
+            <VBox prefHeight="138.0" prefWidth="250.0">
+               <children>
+                  <Separator prefHeight="36.0" prefWidth="232.0" />
+                  <HBox alignment="TOP_CENTER" prefHeight="42.0" prefWidth="232.0" styleClass="mouse-moved" />
+                  <HBox alignment="CENTER" prefHeight="100.0" prefWidth="200.0" />
+                  <VBox prefHeight="138.0" prefWidth="223.0">
+                     <children>
+                        <Label contentDisplay="CENTER" prefHeight="38.0" prefWidth="171.0" text="Dashbord Admin">
+                           <font>
+                              <Font name="Cambria Math" size="22.0" />
+                           </font>
+                           <opaqueInsets>
+                              <Insets left="10.0" />
+                           </opaqueInsets>
+                        </Label>
+                        <HBox prefHeight="32.0" prefWidth="250.0" styleClass="mouse-moved">
+                           <children>
+                              <ImageView fitHeight="39.0" fitWidth="34.0" pickOnBounds="true" preserveRatio="true">
+                                 <image>
+                                    <Image url="@Icons/User.png" />
+                                 </image>
+                              </ImageView>
+                              <Label contentDisplay="CENTER" prefHeight="38.0" prefWidth="115.0" text="Utilisateur">
+                                 <font>
+                                    <Font name="Cambria Math" size="16.0" />
+                                 </font>
+                                 <opaqueInsets>
+                                    <Insets left="10.0" />
+                                 </opaqueInsets>
+                              </Label>
+                           </children>
+                        </HBox>
+                        <HBox layoutX="10.0" layoutY="36.0" prefHeight="32.0" prefWidth="250.0" styleClass="mouse-moved">
+                           <children>
+                              <ImageView fitHeight="38.0" fitWidth="34.0" pickOnBounds="true" preserveRatio="true">
+                                 <image>
+                                    <Image url="@Icons/activity.png" />
+                                 </image>
+                              </ImageView>
+                              <Label contentDisplay="CENTER" prefHeight="38.0" prefWidth="115.0" text="Activite">
+                                 <font>
+                                    <Font name="Cambria Math" size="16.0" />
+                                 </font>
+                                 <opaqueInsets>
+                                    <Insets left="10.0" />
+                                 </opaqueInsets>
+                              </Label>
+                           </children>
+                        </HBox>
+                        <HBox prefHeight="32.0" prefWidth="250.0" styleClass="mouse-moved">
+                           <children>
+                              <ImageView fitHeight="37.0" fitWidth="34.0" pickOnBounds="true" preserveRatio="true">
+                                 <image>
+                                    <Image url="@Icons/Challenge.png" />
+                                 </image>
+                              </ImageView>
+                              <Label contentDisplay="CENTER" prefHeight="38.0" prefWidth="115.0" text="Challenges">
+                                 <font>
+                                    <Font name="Cambria Math" size="16.0" />
+                                 </font>
+                                 <opaqueInsets>
+                                    <Insets left="10.0" />
+                                 </opaqueInsets>
+                              </Label>
+                           </children>
+                        </HBox>
+                        <HBox prefHeight="32.0" prefWidth="250.0" styleClass="mouse-moved">
+                           <children>
+                              <ImageView fitHeight="39.0" fitWidth="39.0" pickOnBounds="true" preserveRatio="true">
+                                 <image>
+                                    <Image url="@Icons/Offre.png" />
+                                 </image>
+                              </ImageView>
+                              <Label contentDisplay="CENTER" prefHeight="38.0" prefWidth="115.0" text="Offre">
+                                 <font>
+                                    <Font name="Cambria Math" size="16.0" />
+                                 </font>
+                                 <opaqueInsets>
+                                    <Insets left="10.0" />
+                                 </opaqueInsets>
+                              </Label>
+                           </children>
+                        </HBox>
+                        <HBox layoutX="10.0" layoutY="120.0" prefHeight="32.0" prefWidth="250.0" styleClass="mouse-moved">
+                           <children>
+                              <ImageView fitHeight="39.0" fitWidth="39.0" pickOnBounds="true" preserveRatio="true">
+                                 <image>
+                                    <Image url="@Icons/Partenaire.png" />
+                                 </image>
+                              </ImageView>
+                              <Label contentDisplay="CENTER" prefHeight="38.0" prefWidth="115.0" text="Partenaire">
+                                 <font>
+                                    <Font name="Cambria Math" size="16.0" />
+                                 </font>
+                                 <opaqueInsets>
+                                    <Insets left="10.0" />
+                                 </opaqueInsets>
+                              </Label>
+                           </children>
+                        </HBox>
+                        <HBox layoutX="10.0" layoutY="160.0" prefHeight="32.0" prefWidth="250.0" styleClass="mouse-moved">
+                           <children>
+                              <ImageView fitHeight="39.0" fitWidth="39.0" pickOnBounds="true" preserveRatio="true">
+                                 <image>
+                                    <Image url="@Icons/Forum.png" />
+                                 </image>
+                              </ImageView>
+                              <Label contentDisplay="CENTER" prefHeight="38.0" prefWidth="115.0" text="Forum">
+                                 <font>
+                                    <Font name="Cambria Math" size="16.0" />
+                                 </font>
+                                 <opaqueInsets>
+                                    <Insets left="10.0" />
+                                 </opaqueInsets>
+                              </Label>
+                           </children>
+                        </HBox>
+                        <HBox layoutX="10.0" layoutY="199.0" prefHeight="32.0" prefWidth="250.0" styleClass="mouse-moved">
+                           <children>
+                              <ImageView fitHeight="39.0" fitWidth="39.0" pickOnBounds="true" preserveRatio="true">
+                                 <image>
+                                    <Image url="@Icons/publication.png" />
+                                 </image>
+                              </ImageView>
+                              <Label contentDisplay="CENTER" prefHeight="38.0" prefWidth="115.0" text="Publication">
+                                 <font>
+                                    <Font name="Cambria Math" size="16.0" />
+                                 </font>
+                                 <opaqueInsets>
+                                    <Insets left="10.0" />
+                                 </opaqueInsets>
+                              </Label>
+                           </children>
+                        </HBox>
+                        <HBox layoutX="10.0" layoutY="199.0" prefHeight="32.0" prefWidth="250.0" styleClass="mouse-moved">
+                           <children>
+                              <ImageView fitHeight="39.0" fitWidth="39.0" pickOnBounds="true" preserveRatio="true">
+                                 <image>
+                                    <Image url="@Icons/Hotel.png" />
+                                 </image>
+                              </ImageView>
+                              <Label contentDisplay="CENTER" prefHeight="38.0" prefWidth="115.0" text="Hotels">
+                                 <font>
+                                    <Font name="Cambria Math" size="16.0" />
+                                 </font>
+                                 <opaqueInsets>
+                                    <Insets left="10.0" />
+                                 </opaqueInsets>
+                              </Label>
+                           </children>
+                        </HBox>
+                     </children>
+                     <VBox.margin>
+                        <Insets left="20.0" />
+                     </VBox.margin>
+                  </VBox>
+               </children>
+            </VBox>
+         </children>
+         <effect>
+            <DropShadow radius="18.7725" width="56.09" />
+         </effect>
+      </VBox>
+    </children>
+</AnchorPane>

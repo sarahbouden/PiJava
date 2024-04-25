@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.text.Font?>
+<?import javafx.scene.text.Text?>
+
+<AnchorPane prefHeight="458.0" prefWidth="735.0" style="-fx-background-color: #F9F6EE;" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="TuniWonders.Controller.RegistrationController">
+   <children>
+      <Pane layoutX="258.0" layoutY="27.0" prefHeight="408.0" prefWidth="218.0" style="-fx-background-radius: 10px; -fx-background-color: #FFE5B4;">
+         <children>
+            <ImageView fitHeight="88.0" fitWidth="75.0" layoutX="72.0" layoutY="14.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../img/TWlogo.png" />
+               </image>
+            </ImageView>
+            <Text layoutX="59.0" layoutY="110.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Create an account" wrappingWidth="111.79998779296875" />
+            <Button fx:id="RegistrationB" layoutX="71.0" layoutY="359.0" mnemonicParsing="false" onAction="#RegisterUser" style="-fx-background-color: #FFD580;" text="Register">
+               <font>
+                  <Font name="Calibri" size="15.0" />
+               </font>
+            </Button>
+            <TextField id="AdresseR" fx:id="AdresseF" layoutX="35.0" layoutY="224.0" promptText="Adresse" />
+            <TextField id="PasswordR" fx:id="PasswordF" layoutX="35.0" layoutY="289.0" promptText="Password" />
+            <TextField id="UserNameR" fx:id="UserNameF" layoutX="35.0" layoutY="129.0" promptText="UserName" />
+            <TextField id="NumTelR" fx:id="PhoneNumF" layoutX="35.0" layoutY="257.0" promptText="Phone Number" />
+            <TextField id="EmailR" fx:id="EmailF" layoutX="35.0" layoutY="192.0" promptText="Email" />
+            <TextField id="CINR" fx:id="CINF" layoutX="35.0" layoutY="161.0" promptText="CIN" />
+            <TextField id="VPasswordR" fx:id="VPasswordF" layoutX="35.0" layoutY="321.0" promptText="Verify Password" />
+         </children>
+      </Pane>
+   </children>
+</AnchorPane>
