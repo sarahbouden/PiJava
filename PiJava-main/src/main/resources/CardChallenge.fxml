@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
+
+<HBox fx:id="boxch" alignment="CENTER" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="185.0" minWidth="225.0" prefHeight="400.0" prefWidth="308.0" styleClass="tableview1" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Controllers.Challenge.CardChallenge">
+    <children>
+        <VBox alignment="CENTER" minHeight="185.0" minWidth="308.0" prefHeight="400.0" prefWidth="308.0" spacing="15.0">
+            <children>
+                <Label fx:id="titrech" contentDisplay="CENTER" maxHeight="-Infinity" prefHeight="21.0" prefWidth="105.0" text="Titre" textFill="#181718" VBox.vgrow="ALWAYS">
+                    <font>
+                        <Font name="Arial Black" size="19.0" />
+                    </font>
+                    <VBox.margin>
+                        <Insets right="150.0" />
+                    </VBox.margin>
+                </Label>
+                <Label fx:id="DD" contentDisplay="CENTER" maxHeight="-Infinity" prefHeight="21.0" prefWidth="105.0" text="Date_Debut" VBox.vgrow="ALWAYS">
+                    <font>
+                        <Font name="System Bold" size="15.0" />
+                    </font>
+                    <VBox.margin>
+                        <Insets right="150.0" />
+                    </VBox.margin>
+                </Label>
+                <Label fx:id="DF" contentDisplay="CENTER" prefHeight="21.0" prefWidth="105.0" text="Date_Fin">
+                    <font>
+                        <Font name="System Bold" size="15.0" />
+                    </font>
+                    <VBox.margin>
+                        <Insets right="150.0" />
+                    </VBox.margin>
+                </Label>
+                <Label fx:id="objectifsCh" prefHeight="21.0" prefWidth="105.0" text="Objectifs">
+                    <font>
+                        <Font name="System Bold" size="15.0" />
+                    </font>
+                    <VBox.margin>
+                        <Insets right="150.0" />
+                    </VBox.margin>
+                </Label>
+            </children>
+        </VBox>
+    </children>
+</HBox>
