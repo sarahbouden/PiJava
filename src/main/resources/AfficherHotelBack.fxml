@@ -1,0 +1,300 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import java.lang.String?>
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.ScrollPane?>
+<?import javafx.scene.control.Separator?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.layout.GridPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.layout.RowConstraints?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
+
+<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="890.0" prefWidth="1315.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controllers.AfficherHotelBack">
+    <top>
+        <HBox prefHeight="60.0" prefWidth="200.0" spacing="20.0" styleClass="white-background" stylesheets="@style.css" BorderPane.alignment="CENTER">
+            <children>
+                <Separator maxHeight="-Infinity" orientation="VERTICAL" prefHeight="36.0" prefWidth="5.0" />
+                <ImageView fitHeight="132.0" fitWidth="131.0" pickOnBounds="true" preserveRatio="true">
+                    <image>
+                        <Image url="@LOGO.png" />
+                    </image>
+                </ImageView>
+                <Button mnemonicParsing="false" onAction="#actualiser" prefHeight="32.0" prefWidth="38.0" stylesheets="@style.css" text="🔄">
+                    <font>
+                        <Font size="14.0" />
+                    </font>
+                    <HBox.margin>
+                        <Insets top="10.0" />
+                    </HBox.margin>
+                    <styleClass>
+                        <String fx:value="tranparent" />
+                        <String fx:value="selected" />
+                    </styleClass>
+                </Button>
+                <VBox alignment="TOP_CENTER" prefHeight="200.0" prefWidth="100.0">
+                    <children>
+                        <ImageView fitHeight="40.0" fitWidth="187.0" pickOnBounds="true" preserveRatio="true">
+                            <image>
+                                <Image url="@bleu.png" />
+                            </image>
+                        </ImageView>
+                        <Button mnemonicParsing="false" stylesheets="@style.css" text="CLICK">
+                            <styleClass>
+                                <String fx:value="selected" />
+                                <String fx:value="tranparent" />
+                                <String fx:value="round-layout" />
+                            </styleClass>
+                        </Button>
+                    </children>
+                </VBox>
+                <HBox alignment="CENTER" maxHeight="-Infinity" prefHeight="50.0" prefWidth="298.0">
+                    <children>
+                        <TextField prefHeight="26.0" prefWidth="211.0" promptText="Search" styleClass="round-layout" stylesheets="@style.css" />
+                        <ImageView fitHeight="22.0" fitWidth="22.0" pickOnBounds="true" preserveRatio="true">
+                            <image>
+                                <Image url="@search.png" />
+                            </image>
+                            <HBox.margin>
+                                <Insets left="10.0" />
+                            </HBox.margin>
+                        </ImageView>
+                    </children>
+                </HBox>
+                <Pane prefHeight="200.0" prefWidth="200.0" HBox.hgrow="ALWAYS">
+                    <padding>
+                        <Insets left="20.0" right="20.0" />
+                    </padding>
+                </Pane>
+                <HBox alignment="CENTER" prefHeight="63.0" prefWidth="153.0">
+               <children>
+                  <Button mnemonicParsing="false" onAction="#afficherRes" style="-fx-background-color: #318ce5;" text="Voir les reservations" textFill="WHITE" />
+               </children></HBox>
+                <ImageView fitHeight="90.0" fitWidth="89.0" pickOnBounds="true" preserveRatio="true">
+                    <image>
+                        <Image url="@bleu.png" />
+                    </image>
+                </ImageView>
+            </children>
+        </HBox>
+    </top>
+    <left>
+        <VBox prefHeight="827.0" prefWidth="232.0" styleClass="white-background" stylesheets="@style.css" BorderPane.alignment="CENTER">
+            <children>
+                <Separator prefWidth="200.0" />
+                <Pane prefHeight="18.0" prefWidth="232.0" />
+                <VBox prefHeight="138.0" prefWidth="223.0">
+                    <children>
+                        <Label contentDisplay="CENTER" prefHeight="38.0" prefWidth="171.0" text="Dashbord Admin">
+                            <font>
+                                <Font name="Cambria Math" size="22.0" />
+                            </font>
+                            <opaqueInsets>
+                                <Insets left="10.0" />
+                            </opaqueInsets>
+                        </Label>
+                        <HBox prefHeight="32.0" prefWidth="250.0" styleClass="mouse-moved">
+                            <children>
+                                <ImageView fitHeight="39.0" fitWidth="34.0" pickOnBounds="true" preserveRatio="true">
+                                    <image>
+                                        <Image url="@User.png" />
+                                    </image>
+                                </ImageView>
+                                <Label contentDisplay="CENTER" prefHeight="38.0" prefWidth="115.0" text="Utilisateur">
+                                    <font>
+                                        <Font name="Cambria Math" size="16.0" />
+                                    </font>
+                                    <opaqueInsets>
+                                        <Insets left="10.0" />
+                                    </opaqueInsets>
+                                </Label>
+                            </children>
+                        </HBox>
+                        <HBox layoutX="10.0" layoutY="36.0" prefHeight="32.0" prefWidth="250.0" styleClass="mouse-moved">
+                            <children>
+                                <ImageView fitHeight="38.0" fitWidth="34.0" pickOnBounds="true" preserveRatio="true">
+                                    <image>
+                                        <Image url="@activity.png" />
+                                    </image>
+                                </ImageView>
+                                <Label contentDisplay="CENTER" prefHeight="38.0" prefWidth="115.0" text="Activite">
+                                    <font>
+                                        <Font name="Cambria Math" size="16.0" />
+                                    </font>
+                                    <opaqueInsets>
+                                        <Insets left="10.0" />
+                                    </opaqueInsets>
+                                </Label>
+                            </children>
+                        </HBox>
+                        <HBox prefHeight="32.0" prefWidth="250.0" styleClass="mouse-moved">
+                            <children>
+                                <ImageView fitHeight="37.0" fitWidth="34.0" pickOnBounds="true" preserveRatio="true">
+                                    <image>
+                                        <Image url="@Challenge.png" />
+                                    </image>
+                                </ImageView>
+                                <Label contentDisplay="CENTER" prefHeight="38.0" prefWidth="115.0" text="Challenges">
+                                    <font>
+                                        <Font name="Cambria Math" size="16.0" />
+                                    </font>
+                                    <opaqueInsets>
+                                        <Insets left="10.0" />
+                                    </opaqueInsets>
+                                </Label>
+                            </children>
+                        </HBox>
+                        <HBox prefHeight="32.0" prefWidth="250.0" styleClass="mouse-moved">
+                            <children>
+                                <ImageView fitHeight="39.0" fitWidth="39.0" pickOnBounds="true" preserveRatio="true">
+                                    <image>
+                                        <Image url="@Offre.png" />
+                                    </image>
+                                </ImageView>
+                                <Label contentDisplay="CENTER" prefHeight="38.0" prefWidth="115.0" text="Offre">
+                                    <font>
+                                        <Font name="Cambria Math" size="16.0" />
+                                    </font>
+                                    <opaqueInsets>
+                                        <Insets left="10.0" />
+                                    </opaqueInsets>
+                                </Label>
+                            </children>
+                        </HBox>
+                        <HBox layoutX="10.0" layoutY="120.0" prefHeight="32.0" prefWidth="250.0" styleClass="mouse-moved">
+                            <children>
+                                <ImageView fitHeight="39.0" fitWidth="39.0" pickOnBounds="true" preserveRatio="true">
+                                    <image>
+                                        <Image url="@Partenaire.png" />
+                                    </image>
+                                </ImageView>
+                                <Label contentDisplay="CENTER" prefHeight="38.0" prefWidth="115.0" text="Partenaire">
+                                    <font>
+                                        <Font name="Cambria Math" size="16.0" />
+                                    </font>
+                                    <opaqueInsets>
+                                        <Insets left="10.0" />
+                                    </opaqueInsets>
+                                </Label>
+                            </children>
+                        </HBox>
+                        <HBox layoutX="10.0" layoutY="160.0" prefHeight="32.0" prefWidth="250.0" styleClass="mouse-moved">
+                            <children>
+                                <ImageView fitHeight="39.0" fitWidth="39.0" pickOnBounds="true" preserveRatio="true">
+                                    <image>
+                                        <Image url="@Forum.png" />
+                                    </image>
+                                </ImageView>
+                                <Label contentDisplay="CENTER" prefHeight="38.0" prefWidth="115.0" text="Forum">
+                                    <font>
+                                        <Font name="Cambria Math" size="16.0" />
+                                    </font>
+                                    <opaqueInsets>
+                                        <Insets left="10.0" />
+                                    </opaqueInsets>
+                                </Label>
+                            </children>
+                        </HBox>
+                        <HBox layoutX="10.0" layoutY="199.0" prefHeight="32.0" prefWidth="250.0" styleClass="mouse-moved">
+                            <children>
+                                <ImageView fitHeight="39.0" fitWidth="39.0" pickOnBounds="true" preserveRatio="true">
+                                    <image>
+                                        <Image url="@publication.png" />
+                                    </image>
+                                </ImageView>
+                                <Label contentDisplay="CENTER" prefHeight="38.0" prefWidth="115.0" text="Publication">
+                                    <font>
+                                        <Font name="Cambria Math" size="16.0" />
+                                    </font>
+                                    <opaqueInsets>
+                                        <Insets left="10.0" />
+                                    </opaqueInsets>
+                                </Label>
+                            </children>
+                        </HBox>
+                        <HBox layoutX="10.0" layoutY="199.0" prefHeight="32.0" prefWidth="250.0" styleClass="mouse-moved">
+                            <children>
+                                <ImageView fitHeight="39.0" fitWidth="39.0" pickOnBounds="true" preserveRatio="true">
+                                    <image>
+                                        <Image url="@Hotel.png" />
+                                    </image>
+                                </ImageView>
+                                <Label contentDisplay="CENTER" prefHeight="38.0" prefWidth="115.0" text="Hotels">
+                                    <font>
+                                        <Font name="Cambria Math" size="16.0" />
+                                    </font>
+                                    <opaqueInsets>
+                                        <Insets left="10.0" />
+                                    </opaqueInsets>
+                                </Label>
+                            </children>
+                        </HBox>
+                    </children>
+                </VBox>
+            </children>
+        </VBox>
+    </left>
+    <center>
+        <VBox prefHeight="780.0" prefWidth="1071.0" spacing="10.0" BorderPane.alignment="CENTER">
+            <children>
+                <Label prefHeight="68.0" prefWidth="279.0" text="Affichage hotels back:">
+                    <font>
+                        <Font name="Cambria Math" size="24.0" />
+                    </font>
+                    <padding>
+                        <Insets bottom="20.0" left="20.0" right="20.0" top="20.0" />
+                    </padding>
+                </Label>
+                <ScrollPane prefHeight="248.0" prefWidth="1028.0">
+                    <content>
+                        <HBox prefHeight="243.0" prefWidth="1081.0">
+                            <children>
+                                <ImageView fitHeight="243.0" fitWidth="463.0" pickOnBounds="true" preserveRatio="true">
+                                    <image>
+                                        <Image url="@11.png" />
+                                    </image>
+                                </ImageView>
+                                <ImageView fitHeight="245.0" fitWidth="340.0" pickOnBounds="true" preserveRatio="true">
+                                    <image>
+                                        <Image url="@11.png" />
+                                    </image>
+                                </ImageView>
+                                <ImageView fitHeight="244.0" fitWidth="340.0" pickOnBounds="true" preserveRatio="true">
+                                    <image>
+                                        <Image url="@11.png" />
+                                    </image>
+                                </ImageView>
+                                <Pane prefHeight="243.0" prefWidth="62.0" style="-fx-background-color: #8f3d3c;" />
+                            </children>
+                        </HBox>
+                    </content>
+                </ScrollPane>
+                <Label alignment="CENTER" contentDisplay="CENTER" prefHeight="58.0" prefWidth="186.0" text="Hotels:">
+                    <font>
+                        <Font size="24.0" />
+                    </font>
+                </Label>
+            <Button mnemonicParsing="false" onAction="#Ajout" style="-fx-background-color: #318ce7;" text="Ajouter Un Hotel" textFill="WHITE" />
+                <ScrollPane prefHeight="419.0" prefWidth="1364.0" styleClass="tranparent" stylesheets="@style.css" VBox.vgrow="ALWAYS">
+               <content>
+                  <GridPane fx:id="gridhotel" prefHeight="84.0" prefWidth="198.0">
+                    <rowConstraints>
+                      <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                    </rowConstraints>
+                     <padding>
+                        <Insets top="100.0" />
+                     </padding>
+                  </GridPane>
+               </content>
+                </ScrollPane>
+            </children>
+        </VBox>
+    </center>
+</BorderPane>
