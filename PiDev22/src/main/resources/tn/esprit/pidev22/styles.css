@@ -1,0 +1,22 @@
+/* Style for the AnchorPane */
+.anchor-pane {
+    -fx-background-color: #FFA500; /* Set background color */
+}
+
+/* Style for the Pagination */
+.pagination {
+    -fx-border-color: #cccccc; /* Set border color */
+    -fx-border-width: 1px; /* Set border width */
+}
+
+/* Style for the Button */
+.button {
+    -fx-background-color: #4CAF50; /* Set background color */
+    -fx-text-fill: white; /* Set text color */
+}
+
+/* Style for the ImageView inside the Button */
+.button .image-view {
+    -fx-fit-height: 22px; /* Set image height */
+    -fx-fit-width: 54px; /* Set image width */
+}

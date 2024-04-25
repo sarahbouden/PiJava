@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<AnchorPane prefHeight="635.0" prefWidth="870.0" xmlns="http://javafx.com/javafx/17.0.2-ea" xmlns:fx="http://javafx.com/fxml/1" fx:controller="tn.esprit.pidev22.Controller.PartenaireController">
+   <children>
+      <TableView fx:id="tab" layoutY="54.0" prefHeight="442.0" prefWidth="635.0">
+        <columns>
+          <TableColumn fx:id="nom" prefWidth="75.0" text="Nom" />
+          <TableColumn fx:id="type" prefWidth="75.0" text="Type" />
+            <TableColumn fx:id="desc" prefWidth="269.1999816894531" text="Description" />
+            <TableColumn fx:id="adresse" prefWidth="80.39999389648438" text="Adresse" />
+            <TableColumn fx:id="photo" prefWidth="131.39999389648438" text="Photo" />
+            <TableColumn fx:id="id" prefWidth="131.39999389648438" text="Photo" />
+        </columns>
+      </TableView>
+      <Button fx:id="add" layoutX="640.0" layoutY="470.0" mnemonicParsing="false" onAction="#ajouter" text="Add" />
+      <Label layoutX="647.0" layoutY="77.0" text="Nom" />
+      <Label layoutX="647.0" layoutY="120.0" text="Type" />
+      <Label layoutX="647.0" layoutY="156.0" text="Description" />
+      <Label layoutX="647.0" layoutY="204.0" text="Adresse" />
+      <Label layoutX="647.0" layoutY="249.0" text="photo" />
+      <TextField fx:id="type_p" layoutX="720.0" layoutY="116.0" />
+      <TextField fx:id="nom_p" layoutX="720.0" layoutY="73.0" />
+      <TextField fx:id="desc_p" layoutX="720.0" layoutY="152.0" />
+      <TextField fx:id="adresse_p" layoutX="720.0" layoutY="200.0" />
+      <TextField fx:id="photo_p" layoutX="720.0" layoutY="245.0" />
+      <Button fx:id="file" layoutX="689.0" layoutY="470.0" mnemonicParsing="false" onAction="#Ajoutefichier" text="choose a photo" />
+      <TextField fx:id="idx" layoutX="668.0" layoutY="28.0" />
+      <Button fx:id="del" layoutX="805.0" layoutY="470.0" mnemonicParsing="false" onAction="#supprimer" text="Delete" />
+      <Button fx:id="update" layoutX="717.0" layoutY="515.0" mnemonicParsing="false" onAction="#modiff" text="Update" />
+   </children>
+</AnchorPane>

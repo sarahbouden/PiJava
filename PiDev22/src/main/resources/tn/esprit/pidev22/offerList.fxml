@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import java.lang.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.image.*?>
+<?import javafx.scene.layout.*?>
+
+<AnchorPane prefHeight="498.0" prefWidth="754.0" stylesheets="@styles.css" xmlns="http://javafx.com/javafx/17.0.2-ea" xmlns:fx="http://javafx.com/fxml/1" fx:controller="tn.esprit.pidev22.Controller.offerListController">
+    <children>
+        <Pagination fx:id="pagination" layoutX="14.0" layoutY="15.0" prefHeight="478.0" prefWidth="562.0" />
+        <Button fx:id="navigate" layoutX="591.0" layoutY="21.0" mnemonicParsing="false" onAction="#navigate" prefHeight="30.0" prefWidth="54.0">
+            <graphic>
+                <ImageView fitHeight="22.0" fitWidth="54.0" pickOnBounds="true" preserveRatio="true">
+                    <image>
+                        <Image url="@docker.PNG" />
+                    </image>
+                </ImageView>
+            </graphic>
+        </Button>
+    </children>
+   <styleClass>
+      <String fx:value="-fx-background-color" />
+      <String fx:value="anchor-pane" />
+   </styleClass>
+</AnchorPane>
