@@ -1,0 +1,34 @@
+/* Styles for the publication cards */
+.publication-card {
+    -fx-background-color: #f0f0f0; /* Background color */
+    -fx-padding: 10px; /* Padding around the card */
+    -fx-spacing: 5px; /* Spacing between elements */
+    -fx-border-width: 1px; /* Border width */
+    -fx-border-color: #cccccc; /* Border color */
+    -fx-border-radius: 5px; /* Border radius */
+}
+
+/* Styles for the publication title */
+.publication-card .title-label {
+    -fx-font-size: 16px; /* Font size */
+    -fx-font-weight: bold; /* Font weight */
+}
+
+/* Styles for the publication description */
+.publication-card .description-label {
+    -fx-font-size: 14px; /* Font size */
+}
+
+/* Styles for the delete and update buttons */
+.publication-card .button {
+    -fx-font-size: 12px; /* Font size */
+    -fx-padding: 5px 10px; /* Padding */
+    -fx-background-color: #007bff; /* Button background color */
+    -fx-text-fill: white; /* Text color */
+    -fx-border-radius: 5px; /* Border radius */
+}
+
+/* Hover effect for buttons */
+.publication-card .button:hover {
+    -fx-background-color: #0056b3; /* Hover background color */
+}

@@ -45,6 +45,14 @@ public class Publication {
         this.rating = rating;
         this.somme = somme;
     }
+    public Publication( String titre, String description, String url_ressource, float rating, float somme) {
+
+        this.titre = titre;
+        this.description = description;
+        this.url_ressource = url_ressource;
+        this.rating = rating;
+        this.somme = somme;
+    }
 
     public void setUrl_ressource(String url_ressource) {
         this.url_ressource = url_ressource;

@@ -4,6 +4,9 @@ import java.util.Date;
 
 public class Recompense {
     private int id;
+    private String nom_recp;
+    private String niveau;
+    private String description_recp;
 
     public int getId() {
         return id;
@@ -11,6 +14,12 @@ public class Recompense {
 
     public void setId(int id) {
         this.id = id;
+    }
+
+    public Recompense(String nom_recp, String niveau, String description_recp) {
+        this.nom_recp = nom_recp;
+        this.niveau = niveau;
+        this.description_recp = description_recp;
     }
 
     public String getNom_recp() {
@@ -37,7 +46,12 @@ public class Recompense {
         this.description_recp = description_recp;
     }
 
-    private String nom_recp;
-    private String niveau;
-    private String description_recp;
+    @Override
+    public String toString() {
+        return "Recompense{" +
+                "nom_recp='" + nom_recp + '\'' +
+                ", niveau='" + niveau + '\'' +
+                ", description_recp='" + description_recp + '\'' +
+                '}';
+    }
 }
