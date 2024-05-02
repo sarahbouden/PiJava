@@ -12,7 +12,7 @@ import java.util.List;
 public class Main {
     public static void main(String[] args) {
         MyDataBase.getInstance();
-        User user= new User(9,"Sarra bawden","11111111!","11111111!","ROLE_USER",44444444,"sarra.bouden@gmail.com","NajbEbnFernes",22574667);
+        User user= new User(9,"Sarra bawden","11111111!","11111111!","ROLE_USER",44444444,"sarra.bouden@gmail.com","NajbEbnFernes",22574667,"ACTIVE");
         UserService Uservice= new UserService();
        /* try{
 

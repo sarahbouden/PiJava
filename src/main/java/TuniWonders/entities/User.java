@@ -14,7 +14,11 @@ public class User {
     private int cin;
     private String email;
     private String adresse;
+
+
+
     private int num_tel;
+    private String status;
 
     private List<Challenge> challenges;
 
@@ -30,6 +34,22 @@ public class User {
         return challenges;
     }
 
+
+    public String getRoles() {
+        return roles;
+    }
+
+    public void setRoles(String roles) {
+        this.roles = roles;
+    }
+    public String getStatus() {
+        return status;
+    }
+
+    public void setStatus(String status) {
+        this.status = status;
+    }
+
     public void setChallenges(List<Challenge> challenges) {
         this.challenges = challenges;
     }
@@ -37,13 +57,6 @@ public class User {
 
 
 
-    public String getRoles() {
-        return roles;
-    }
-
-    public void setRoles(String roles) {
-        roles = roles;
-    }
 
     public int getId() {
         return id;
@@ -128,7 +141,7 @@ public class User {
     public User() {
     }
 
-    public User(String username, String password, String vpwd, String roles, int cin, String email, String adresse, int num_tel) {
+    public User(String username, String password, String vpwd, String roles, int cin, String email, String adresse, int num_tel,String status) {
         this.username = username;
         this.password = password;
         this.vpwd = vpwd;
@@ -137,8 +150,9 @@ public class User {
         this.email = email;
         this.adresse = adresse;
         this.num_tel = num_tel;
+        this.status=status;
     }
-    public User(int id, String username, String password, String vpwd, String roles, int cin, String email, String adresse, int num_tel) {
+    public User(int id, String username, String password, String vpwd, String roles, int cin, String email, String adresse, int num_tel,String status) {
         this.id=id;
         this.username = username;
         this.password = password;
@@ -148,6 +162,7 @@ public class User {
         this.email = email;
         this.adresse = adresse;
         this.num_tel = num_tel;
+        this.status=status;
     }
     @Override
     public String toString() {

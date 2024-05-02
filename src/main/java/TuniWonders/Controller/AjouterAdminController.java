@@ -1,5 +1,6 @@
 package TuniWonders.Controller;
 
+import TuniWonders.entities.PasswordManager;
 import TuniWonders.entities.User;
 import TuniWonders.services.UserService;
 import javafx.event.ActionEvent;
@@ -64,6 +65,7 @@ public class AjouterAdminController {
         String Adresse = AdresseF.getText();
         int PhoneNum= Integer.parseInt(PhoneNumF.getText());
         String Password=PasswordF.getText();
+        String HPassword= PasswordManager.hashPassword(PasswordF.getText());
         String Vpassword= VPasswordF.getText();
         if (Username== null ) {
             showAlert("Error", "UserName field is empty");
@@ -71,8 +73,8 @@ public class AjouterAdminController {
         if (CIN == 0 ) {
             showAlert("Error", "CIN field is empty");
         }
-        if (CIN < 00000000 && CIN >99999999) {
-            showAlert("Error", "CIN must contain 8 numbers");
+        if (CIN < 00000000 || CIN >99999999) {
+            showAlert("Error", "CIN must contain 8 digits");
         }
         if (Adresse== null ) {
             showAlert("Error", "Adresse field is empty");
@@ -80,8 +82,8 @@ public class AjouterAdminController {
         if (PhoneNum == 0 ) {
             showAlert("Error", "Phone Number field is empty");
         }
-        if (PhoneNum < 00000000 && PhoneNum >99999999) {
-            showAlert("Error", "Phone Number must contain 8 numbers");
+        if (PhoneNum < 00000000 || PhoneNum >99999999) {
+            showAlert("Error", "Phone Number must contain 8 digits");
         }
         if (Password== null ) {
             showAlert("Error", "Password field is empty");
@@ -92,16 +94,20 @@ public class AjouterAdminController {
         if (!Vpassword.equals(Password) ) {
             showAlert("Error", "The passwords do not match");
         }
-        String role="ROLE_ADMIN";
-        User user=new User(Username,Password,Vpassword,role,CIN,Email,Adresse,PhoneNum);
-        try {
-            us.ajouter(user);
-        }
-        catch (SQLException e) {
-            Alert alert = new Alert(Alert.AlertType.ERROR);
-            alert.setTitle("Error");
-            alert.setContentText(e.getMessage());
-            alert.show();
+        else {
+            String role="ROLE_ADMIN";
+            String status="ACTIVE";
+            User user=new User(Username,HPassword,Vpassword,role,CIN,Email,Adresse,PhoneNum,status);
+            try {
+                us.ajouter(user);
+            }
+            catch (SQLException e) {
+                Alert alert = new Alert(Alert.AlertType.ERROR);
+                alert.setTitle("Error");
+                alert.setContentText(e.getMessage());
+                System.out.println(e.getMessage());
+                alert.show();
+            }
         }
     }
     private void showAlert(String title, String message) {

@@ -1,5 +1,6 @@
 package TuniWonders.Controller;
 
+import TuniWonders.entities.PasswordManager;
 import TuniWonders.entities.User;
 import TuniWonders.services.UserService;
 import javafx.event.ActionEvent;
@@ -17,6 +18,7 @@ import javafx.stage.Stage;
 import java.io.IOException;
 import java.net.URL;
 import java.sql.SQLException;
+import java.sql.SQLOutput;
 import java.util.ResourceBundle;
 
 public class ModifierUserController implements Initializable {
@@ -90,13 +92,14 @@ public class ModifierUserController implements Initializable {
         }
 
         String role = u.getRoles();
-        System.out.println(role);
+        String status=u.getStatus();
         String Username= UserNameF.getText();
         int CIN = Integer.parseInt(CINF.getText());
         String Email = EmailF.getText();
         String Adresse = AdresseF.getText();
         int PhoneNum= Integer.parseInt(PhoneNumF.getText());
         String Password=PasswordF.getText();
+        String HPassword= PasswordManager.hashPassword(PasswordF.getText());
         String Vpassword= VPasswordF.getText();
         if (Username== null ) {
             showAlert("Error", "UserName field is empty");
@@ -125,24 +128,28 @@ public class ModifierUserController implements Initializable {
         if (!Vpassword.equals(Password) ) {
             showAlert("Error", "The passwords do not match");
         }
+        else{
+            User user=new User(this.ID,Username,HPassword,Vpassword,role,CIN,Email,Adresse,PhoneNum,status);
+            try {
+                us.modifier(user);
+                Stage stage = (Stage) ModifyB.getScene().getWindow();
+            }
+            catch (SQLException e) {
+                Alert alert = new Alert(Alert.AlertType.ERROR);
+                alert.setTitle("Error");
+                alert.setContentText(e.getMessage());
+                alert.show();
+            }
+        }
 
-        User user=new User(this.ID,Username,Password,Vpassword,role,CIN,Email,Adresse,PhoneNum);
-        try {
-            us.modifier(user);
-            Stage stage = (Stage) ModifyB.getScene().getWindow();
-        }
-        catch (SQLException e) {
-            Alert alert = new Alert(Alert.AlertType.ERROR);
-            alert.setTitle("Error");
-            alert.setContentText(e.getMessage());
-            alert.show();
-        }
+
     }
     private void showAlert(String title, String message) {
         Alert alert = new Alert(Alert.AlertType.ERROR);
         alert.setTitle(title);
         alert.setHeaderText(null);
         alert.setContentText(message);
+        System.out.println(message);
         alert.showAndWait();
     }
 

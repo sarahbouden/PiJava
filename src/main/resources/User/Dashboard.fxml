@@ -15,9 +15,9 @@
 <?import javafx.scene.paint.Color?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane prefHeight="771.0" prefWidth="901.0" style="-fx-background-color: #ffbe8a;" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="TuniWonders.Controller.DashboardUser">
+<AnchorPane prefHeight="771.0" prefWidth="983.0" style="-fx-background-color: #ffbe8a;" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="TuniWonders.Controller.DashboardUser">
     <children>
-        <TableView fx:id="tableView" layoutX="216.0" layoutY="157.0" prefHeight="487.0" prefWidth="650.0">
+        <TableView fx:id="tableView" layoutX="216.0" layoutY="157.0" prefHeight="487.0" prefWidth="713.0">
             <columns>
                 <TableColumn fx:id="IdCol" prefWidth="44.80000305175781" text="Id" />
                 <TableColumn fx:id="UserNameCol" prefWidth="83.199951171875" text="UserName" />
@@ -26,7 +26,8 @@
             <TableColumn fx:id="EmailCol" prefWidth="68.0" text="Email" />
             <TableColumn fx:id="AdresseCol" prefWidth="85.5999755859375" text="Adresse" />
             <TableColumn fx:id="NumTlpCol" prefWidth="98.40008544921875" text="Numero Tlp" />
-            <TableColumn fx:id="rolesCol" prefWidth="119.99997558593748" text="Role" />
+            <TableColumn fx:id="rolesCol" prefWidth="77.5999755859375" text="Role" />
+            <TableColumn fx:id="StatusCol" prefWidth="117.5999755859375" text="Status" />
             </columns>
         </TableView>
         <Label fx:id="welcomeLBL" layoutX="350.0" layoutY="62.0" text="Liste Des Utilisateurs" textFill="WHITE">
@@ -34,7 +35,7 @@
                 <Font size="37.0" />
             </font>
         </Label>
-      <Button fx:id="DeleteBtn" layoutX="697.0" layoutY="653.0" mnemonicParsing="false" onAction="#Delete" prefHeight="32.0" prefWidth="153.0" text="Delete" textFill="#577d8a">
+      <Button fx:id="DeleteBtn" layoutX="779.0" layoutY="653.0" mnemonicParsing="false" onAction="#Delete" prefHeight="32.0" prefWidth="153.0" text="Delete" textFill="#577d8a">
          <effect>
             <DropShadow>
                <color>
@@ -221,7 +222,7 @@
             <DropShadow radius="18.7725" width="56.09" />
          </effect>
       </VBox>
-      <Button fx:id="EditBtn" layoutX="544.0" layoutY="653.0" mnemonicParsing="false" onAction="#modifierNav" prefHeight="32.0" prefWidth="142.0" text="Edit" textFill="#577d8a">
+      <Button fx:id="EditBtn" layoutX="623.0" layoutY="653.0" mnemonicParsing="false" onAction="#modifierNav" prefHeight="32.0" prefWidth="142.0" text="Edit" textFill="#577d8a">
          <effect>
             <DropShadow>
                <color>
@@ -234,6 +235,18 @@
          </font>
       </Button>
       <Button fx:id="AddAdminB" layoutX="708.0" layoutY="116.0" mnemonicParsing="false" onAction="#AddAdminNav" prefHeight="32.0" prefWidth="142.0" text="Add Admin" textFill="#577d8a">
+         <effect>
+            <DropShadow>
+               <color>
+                  <Color red="0.9894737005233765" green="0.9164236783981323" blue="0.9051851630210876" />
+               </color>
+            </DropShadow>
+         </effect>
+         <font>
+            <Font name="System Bold" size="14.0" />
+         </font>
+      </Button>
+      <Button fx:id="DeactBtn" layoutX="471.0" layoutY="653.0" mnemonicParsing="false" onAction="#Deactivate" prefHeight="32.0" prefWidth="142.0" text="Activate/Deactivate" textFill="#577d8a">
          <effect>
             <DropShadow>
                <color>

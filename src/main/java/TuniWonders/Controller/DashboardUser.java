@@ -76,6 +76,8 @@ public class DashboardUser implements Initializable {
 
         @FXML
         private TableColumn<User, String> UserNameCol;
+        @FXML
+        private TableColumn<User, String    > StatusCol;
 
         @FXML
         private Label UtilisateursLabel;
@@ -102,6 +104,7 @@ public class DashboardUser implements Initializable {
             AdresseCol.setCellValueFactory(new PropertyValueFactory<>("adresse"));
             NumTlpCol.setCellValueFactory(new PropertyValueFactory<>("num_tel"));
             rolesCol.setCellValueFactory(new PropertyValueFactory<>("roles"));
+            StatusCol.setCellValueFactory(new PropertyValueFactory<>("Status"));
 
         } catch (SQLException e) {
             System.err.println(e.getMessage());
@@ -161,6 +164,26 @@ public class DashboardUser implements Initializable {
                 System.err.println(e.getMessage());
             }
         }
+    @FXML
+        void Deactivate(ActionEvent event) {
+                User user= tableView.getSelectionModel().getSelectedItem();
+                System.out.println(user.getStatus());
+                if (user.getStatus().equals("ACTIVE")){
+                    user.setStatus("INACTIVE");
+                }
+                else
+                {
+                    user.setStatus("ACTIVE");
+                }
+            try {
+                us.modifier(user);
+                tableView.refresh();
+            } catch (SQLException e) {
+                System.err.println(e.getMessage());
+            }
+
+
+    }
 
 
 

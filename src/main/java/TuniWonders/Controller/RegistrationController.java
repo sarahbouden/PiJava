@@ -1,6 +1,7 @@
 package TuniWonders.Controller;
 
 
+import TuniWonders.entities.PasswordManager;
 import TuniWonders.entities.User;
 import TuniWonders.services.UserService;
 import javafx.event.ActionEvent;
@@ -12,6 +13,7 @@ import javafx.scene.Scene;
 import javafx.scene.control.Alert;
 import javafx.scene.control.Button;
 import javafx.scene.control.TextField;
+
 
 import java.io.IOException;
 import java.sql.SQLException;
@@ -43,6 +45,8 @@ public class RegistrationController {
     private TextField VPasswordF;
     private final UserService us=new UserService();
 
+
+
     @FXML
     void RegisterUser(ActionEvent event) {
         String Username= UserNameF.getText();
@@ -51,6 +55,7 @@ public class RegistrationController {
         String Adresse = AdresseF.getText();
         int PhoneNum= Integer.parseInt(PhoneNumF.getText());
         String Password=PasswordF.getText();
+        String HPassword= PasswordManager.hashPassword(PasswordF.getText());
         String Vpassword= VPasswordF.getText();
         if (Username== null ) {
             showAlert("Error", "UserName field is empty");
@@ -58,7 +63,7 @@ public class RegistrationController {
         if (CIN == 0 ) {
             showAlert("Error", "CIN field is empty");
         }
-        if (CIN < 00000000 && CIN >99999999) {
+        if (CIN < 00000000 || CIN >99999999) {
             showAlert("Error", "CIN must contain 8 numbers");
         }
         if (Adresse== null ) {
@@ -67,7 +72,9 @@ public class RegistrationController {
         if (PhoneNum == 0 ) {
             showAlert("Error", "Phone Number field is empty");
         }
-        if (PhoneNum < 00000000 && PhoneNum >99999999) {
+        if (PhoneNum < 00000000 || PhoneNum >99999999
+
+        ) {
             showAlert("Error", "Phone Number must contain 8 numbers");
         }
         if (Password== null ) {
@@ -79,25 +86,29 @@ public class RegistrationController {
         if (!Vpassword.equals(Password) ) {
             showAlert("Error", "The passwords do not match");
         }
-        String role="ROLE_USER";
-        User user=new User(Username,Password,Vpassword,role,CIN,Email,Adresse,PhoneNum);
-        try {
-            us.ajouter(user);
+        else {
+            String role="ROLE_USER";
+            String status="ACTIVE";
+            User user=new User(Username,HPassword,Vpassword,role,CIN,Email,Adresse,PhoneNum,status);
             try {
-                FXMLLoader loader = new FXMLLoader(getClass().getResource("/User/Dashboard.fxml"));
-                Parent root = loader.load();
-                Scene currentScene = ((Node) event.getSource()).getScene();
-                currentScene.setRoot(root);
-            } catch (IOException e) {
-                System.err.println(e.getMessage());
+                us.ajouter(user);
+                try {
+                    FXMLLoader loader = new FXMLLoader(getClass().getResource("/User/Dashboard.fxml"));
+                    Parent root = loader.load();
+                    Scene currentScene = ((Node) event.getSource()).getScene();
+                    currentScene.setRoot(root);
+                } catch (IOException e) {
+                    System.err.println(e.getMessage());
+                }
+            }
+            catch (SQLException e) {
+                Alert alert = new Alert(Alert.AlertType.ERROR);
+                alert.setTitle("Error");
+                alert.setContentText(e.getMessage());
+                alert.show();
             }
         }
-        catch (SQLException e) {
-            Alert alert = new Alert(Alert.AlertType.ERROR);
-            alert.setTitle("Error");
-            alert.setContentText(e.getMessage());
-            alert.show();
-        }
+
     }
     private void showAlert(String title, String message) {
         Alert alert = new Alert(Alert.AlertType.ERROR);
