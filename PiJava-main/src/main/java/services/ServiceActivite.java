@@ -34,7 +34,22 @@ public class ServiceActivite implements IService<Activite> {
         Statement statement=connection.createStatement();
         statement.executeUpdate(req);
 
+
         System.out.println("challenge ajoute");
+    }
+
+    public int ajouterAvecId(Activite activite) throws SQLException{
+        String req ="INSERT INTO activite ( nom_act,image_name,type_act,location_act,description_act)"+
+                "VALUES ('"+activite.getNom_act()+"','"+activite.getImage_name()+"','"+activite.getType_act()+"','"+activite.getLocation_act()+"','"+activite.getDescription_act()+"')";
+        Statement statement=connection.createStatement();
+        statement.executeUpdate(req,Statement.RETURN_GENERATED_KEYS);
+
+        ResultSet rs = statement.getGeneratedKeys();
+        rs.next();
+        int id = rs.getInt(1);
+        System.out.println("challenge ajoute");
+        return id;
+
     }
 
     @Override
@@ -67,7 +82,7 @@ public class ServiceActivite implements IService<Activite> {
     @Override
     public List<Activite> afficher() throws SQLException {
         List<Activite> activites = new ArrayList<>();
-        String req = "SELECT * FROM activite"; // Correct table name
+        String req = "SELECT * FROM activite";
         try (Statement stmt = connection.createStatement();
              ResultSet rs = stmt.executeQuery(req)) {
             while (rs.next()) {
@@ -78,6 +93,7 @@ public class ServiceActivite implements IService<Activite> {
                 activite.setType_act(rs.getString("type_act"));
                 activite.setLocation_act(rs.getString("location_act"));
                 activite.setDescription_act(rs.getString("description_act"));
+
                 activites.add(activite);
             }
         }

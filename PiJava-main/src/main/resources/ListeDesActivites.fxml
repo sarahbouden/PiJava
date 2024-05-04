@@ -25,7 +25,7 @@
                 <TableColumn fx:id="TypeAct" prefWidth="72.0" text="Type" />
                 <TableColumn fx:id="LocationAct" minWidth="5.60003662109375" prefWidth="78.39996337890625" text="Location" />
             <TableColumn fx:id="challengeAct" prefWidth="90.39990234375" text="Challenges" />
-            <TableColumn fx:id="DescriptionAct1" prefWidth="139.2000732421875" text="Description" />
+            <TableColumn fx:id="DescriptionAct" prefWidth="139.2000732421875" text="Description" />
             </columns>
         </TableView>
         <Label fx:id="welcomeLBL" layoutX="370.0" layoutY="91.0" text="Liste Des Activites" textFill="WHITE">

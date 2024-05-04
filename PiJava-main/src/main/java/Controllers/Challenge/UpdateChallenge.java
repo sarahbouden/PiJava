@@ -3,6 +3,7 @@ package Controllers.Challenge;
 import java.net.URL;
 import java.sql.Date;
 import java.sql.SQLException;
+import java.text.SimpleDateFormat;
 import java.time.LocalDate;
 import java.time.ZoneId;
 import java.util.ResourceBundle;
@@ -87,8 +88,9 @@ public class UpdateChallenge {
         selectedChallenge = selectedCh;
 
         Titre.setText(selectedCh.getTitre_ch());
-        Date_Debut.setUserData(selectedCh.getDate_debut_ch());
-        Date_Fin.setUserData(selectedCh.getDate_fin_ch());
+
+        Date_Debut.setValue(LocalDate.parse(selectedCh.getDate_debut_ch().toString()));
+        Date_Fin.setValue(LocalDate.parse(selectedCh.getDate_fin_ch().toString()));
         Objectifs.setText(selectedCh.getObjectif_ch());
 
     }

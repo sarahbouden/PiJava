@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.text.Font?>
+<?import javafx.scene.text.Text?>
+
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="569.0" prefWidth="946.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Controllers.Menusandcharts.MenuAppWithChartController">
+
+    <children>
+        <BorderPane fx:id="borderPane" layoutX="65.0" layoutY="100.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="455.0" prefWidth="840.0" />
+      <HBox alignment="CENTER_RIGHT" prefHeight="93.0" prefWidth="946.0" spacing="20.0" style="-fx-background-color: #060138;" styleClass="search-container">
+         <children>
+            <ImageView fitHeight="75.0" fitWidth="113.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@Icons/logo.png" />
+               </image>
+               <HBox.margin>
+                  <Insets left="20.0" />
+               </HBox.margin>
+            </ImageView>
+            <HBox alignment="CENTER_LEFT" prefHeight="137.0" prefWidth="162.0" spacing="10.0" styleClass="right-side-border">
+               <HBox.margin>
+                  <Insets right="250.0" />
+               </HBox.margin>
+            </HBox>
+            <Text fill="#fafafa" strokeType="OUTSIDE" strokeWidth="0.0" text="Nos Statestiques ">
+               <font>
+                  <Font size="37.0" />
+               </font>
+            </Text>
+            <HBox alignment="CENTER_LEFT" nodeOrientation="LEFT_TO_RIGHT" prefHeight="127.0" prefWidth="251.0" spacing="20.0" styleClass="transparent">
+               <HBox.margin>
+                  <Insets />
+               </HBox.margin>
+            </HBox>
+         </children>
+      </HBox>
+    </children>
+</AnchorPane>

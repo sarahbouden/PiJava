@@ -82,6 +82,10 @@ public class ListeDesChallengeFront  {
             e.printStackTrace();
         }
     }
+    @FXML
+    void AfficherStatistiqueAct(ActionEvent event) {
+
+    }
 
 
     @FXML

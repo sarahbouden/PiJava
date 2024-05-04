@@ -110,7 +110,7 @@ public class ListeDesChallenge {
         Challenge selectedCh = tableCh.getSelectionModel().getSelectedItem();
 
         if (selectedCh != null) {
-            // Open the update activite form with the selected activite for update
+
             FXMLLoader loader = new FXMLLoader(getClass().getResource("/UpdateChallenge.fxml"));
             Parent root;
             try {

@@ -146,8 +146,8 @@ public class AjouterActiviteController {
 
         // Appeler le service pour ajouter l'activité à la base de données
         try {
-            serviceActivite.ajouter(nouvelleActivite);
-            int actId = nouvelleActivite.getId();
+          int actId=  serviceActivite.ajouterAvecId(nouvelleActivite);
+          //  int actId = nouvelleActivite.getId();
 
             // Associate the selected activities with the event by adding entries to the events_activities table
             for (Challenge challenge1 : selectedchallenge) {

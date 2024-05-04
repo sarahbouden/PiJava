@@ -1,6 +1,7 @@
 package Controllers.Activite;
 
 import entities.Activite;
+import entities.comment;
 import javafx.event.ActionEvent;
 import javafx.scene.Parent;
 
@@ -14,6 +15,8 @@ import javafx.fxml.Initializable;
 import javafx.geometry.Insets;
 import javafx.scene.layout.GridPane;
 import javafx.scene.layout.HBox;
+import services.ServiceComment;
+
 import java.io.IOException;
 import java.net.URL;
 import java.sql.SQLException;
@@ -43,6 +46,7 @@ public class FrontActivites  {
             try
             {
 
+
                 // Charge chaque carte des services et l'ajoute au GridPane
                 FXMLLoader loader = new FXMLLoader(getClass().getResource("/Card.fxml"));
                 HBox box = loader.load();
@@ -59,7 +63,20 @@ public class FrontActivites  {
         }
     }
 
+    @FXML
+    void AfficherStats(ActionEvent event) {
+        FXMLLoader loader = new FXMLLoader(getClass().getResource("/chart.fxml"));
+        Parent root;
+        try {
+            root = loader.load();
+            Stage stage = new Stage();
+            stage.setScene(new Scene(root));
 
+            stage.show();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+    }
 
 
     public void AfficherCh(ActionEvent actionEvent) {
@@ -90,7 +107,9 @@ public class FrontActivites  {
 
             // Pass data to the DetailViewController
             DetailActivite controller = loader.getController();
-            controller.initialize(activite.getNom_act(),activite.getImage_name(), activite.getDescription_act(),activite.getType_act(),activite.getLocation_act(),activite.getChallenges());
+            ServiceComment serviceComment = new ServiceComment();
+            List<comment> comments = serviceComment.getCommentsByActivity(activite);
+            controller.initialize(activite.getNom_act(), activite.getImage_name(), activite.getDescription_act(), activite.getType_act(), activite.getLocation_act(), activite.getChallenges(), comments);
 
             Stage stage = new Stage();
             stage.setScene(new Scene(root));
