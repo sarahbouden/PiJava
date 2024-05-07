@@ -70,11 +70,11 @@ public class AjouterHotelFXML {
             return;
         }
 
-        // Vérification que les champs ne contiennent que des caractères alphabétiques
+     /*   // Vérification que les champs ne contiennent que des caractères alphabétiques
         if (!nom_hotel.getText().matches("[\\p{L}]+") || !location_hotel.getText().matches("[\\p{L}]+") || !desc.getText().matches("[\\p{L}]+")) {
             afficherAlerte(Alert.AlertType.ERROR, "Erreur", "Les champs Nom, Location et Description doivent contenir uniquement des lettres.");
             return;
-        }
+        }*/
 
 
         try {

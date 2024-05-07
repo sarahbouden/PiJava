@@ -45,7 +45,7 @@
                 <HBox alignment="CENTER" prefHeight="79.0" prefWidth="469.0">
                     <children>
 
-                        <Button fx:id="reserver" mnemonicParsing="false" onAction="#Reserver" prefHeight="40.0" prefWidth="147.0" style="-fx-background-color: #ff8526;" text="Reserver" textFill="WHITE">
+                        <Button fx:id="reserver" mnemonicParsing="false" onAction="#Reserver" prefHeight="40.0" prefWidth="166.0" style="-fx-background-color: #f1b04c;" text="Reserver" textFill="WHITE">
                             <font>
                                 <Font size="18.0" />
                             </font>
@@ -53,6 +53,11 @@
                                 <Insets />
                             </HBox.margin>
                         </Button>
+                  <Button fx:id="rating" graphicTextGap="2.0" mnemonicParsing="false" onAction="#rating" prefHeight="40.0" prefWidth="176.0" style="-fx-background-color: #f5c77e;" text="Rate Hotel !" textFill="WHITE">
+                     <font>
+                        <Font size="18.0" />
+                     </font>
+                  </Button>
                     </children>
                     <VBox.margin>
                         <Insets bottom="2.0" />

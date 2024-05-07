@@ -1,5 +1,7 @@
 package controllers;
 
+import java.awt.*;
+import java.io.File;
 import java.io.IOException;
 import java.net.URL;
 import java.sql.SQLException;
@@ -14,6 +16,7 @@ import javafx.scene.Parent;
 import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
 import javafx.scene.layout.VBox;
+import services.ServicePDF;
 import services.ServiceReservation;
 
 public class AfficherReservationFXML {
@@ -63,6 +66,25 @@ public class AfficherReservationFXML {
 
         return card;
     }
+    @FXML
+    void PDF(ActionEvent event) {
+        List<Reservation> reservations = null;
+        try {
+            reservations = new ServiceReservation().afficher();
+        } catch (SQLException e) {
+            throw new RuntimeException(e);
+        }
+
+        ServicePDF generator = new ServicePDF();
+
+        generator.generate(reservations);
+        try {
+            Desktop.getDesktop().open(new File("iTextTable.pdf"));
+        } catch (IOException e) {
+            throw new RuntimeException(e);
+        }
+    }
+
     private void displayReservation(List<Reservation> reservations) {
         for (Reservation res : reservations) {
             VBox card = createReservationCard(res);

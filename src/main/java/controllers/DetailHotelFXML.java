@@ -33,6 +33,8 @@ public class DetailHotelFXML {
 
     @FXML
     private Button reserver;
+    @FXML
+    private Button rating;
 
     @FXML
     private ImageView ftImgProds;
@@ -49,6 +51,23 @@ public class DetailHotelFXML {
 
     public Reservation reservation;
 
+   @FXML
+    void rating(ActionEvent event) {
+        try {
+            FXMLLoader loader = new FXMLLoader(getClass().getResource("/RatingController.fxml"));
+            Parent root = loader.load();
+            RatingController controller = loader.getController();
+            controller.setHotel(hotel);
+            rating.getScene().setRoot(root);
+
+        } catch (IOException e) {
+            System.err.println(e.getMessage());
+            //   afficherAlerte(Alert.AlertType.ERROR, "Erreur", "Erreur lors du chargement de la page de modification : " + e.getMessage());
+        }
+
+
+    }
+
     @FXML
     void Reserver(ActionEvent event) {
         try {
@@ -63,6 +82,7 @@ public class DetailHotelFXML {
             System.err.println(e.getMessage());
             //   afficherAlerte(Alert.AlertType.ERROR, "Erreur", "Erreur lors du chargement de la page de modification : " + e.getMessage());
         }
+
 
     }
 

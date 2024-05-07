@@ -1,5 +1,6 @@
 package services;
 
+import entities.Hotel;
 import entities.Reservation;
 import utils.MyDataBase;
 
@@ -36,14 +37,13 @@ public class ServiceReservation implements IService<Reservation> {
     @Override
     public void modifier(Reservation reservation) throws SQLException {
         try {
-            String requete = "UPDATE reservation SET id_hotel_id=?, date_debut_r=?, date_fin_r=?, nbr_perso=?, type_room=? WHERE id=?";
+            String requete = "UPDATE reservation SET date_debut_r=?, date_fin_r=?, nbr_perso=?, type_room=? WHERE id=?";
             PreparedStatement pst = cnx.prepareStatement(requete);
-            pst.setInt(1, reservation.getId_hotel_id());
-             pst.setDate(2, Date.valueOf(reservation.getDate_debut_r()));
-                pst.setDate(3, Date.valueOf(reservation.getDate_fin_r()));
-                pst.setInt(4, reservation.getNbr_perso());
-                pst.setString(5, reservation.getType_room());
-                pst.setInt(6, reservation.getId());
+             pst.setDate(1, Date.valueOf(reservation.getDate_debut_r()));
+             pst.setDate(2, Date.valueOf(reservation.getDate_fin_r()));
+             pst.setInt(3, reservation.getNbr_perso());
+             pst.setString(4, reservation.getType_room());
+             pst.setInt(5, reservation.getId());
 
             pst.executeUpdate();
             System.out.println("Reservation modifiée avec succès");
@@ -84,4 +84,6 @@ public class ServiceReservation implements IService<Reservation> {
         st.close();
         return reservationList;
     }
+
+
 }

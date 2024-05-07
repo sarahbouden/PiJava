@@ -53,7 +53,7 @@ public class DetailReservationFXML {
             FXMLLoader loader = new FXMLLoader(getClass().getResource("/ModifierReservationFXML.fxml"));
             Parent root = loader.load();
             ModifierReservationFXML modifierReservationController = loader.getController();
-            modifierReservationController.setHotelId(hotel.getId());
+           modifierReservationController.setReservation(reservation);
 
             Stage stage = new Stage();
             stage.setScene(new Scene(root));

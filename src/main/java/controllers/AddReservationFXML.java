@@ -1,20 +1,29 @@
 package controllers;
 
+import java.io.IOException;
 import java.net.URL;
 import java.sql.SQLException;
 import java.time.LocalDate;
 import java.util.ResourceBundle;
-
+import javafx.scene.web.WebEngine;
+import javafx.scene.web.WebView;
 import entities.Reservation;
 import javafx.collections.FXCollections;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
+import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
+import javafx.scene.Parent;
+import javafx.scene.Scene;
 import javafx.scene.control.Alert;
 import javafx.scene.control.ComboBox;
 import javafx.scene.control.DatePicker;
 import javafx.scene.control.TextField;
+import javafx.scene.layout.StackPane;
+import javafx.stage.Stage;
+import services.Payment;
 import services.ServiceReservation;
+import services.SmsSender;
 
 public class AddReservationFXML implements Initializable {
 
@@ -41,7 +50,21 @@ public class AddReservationFXML implements Initializable {
 
     private Reservation reservation;
 
-
+    WebView webView = new WebView();
+    WebEngine webEngine = webView.getEngine();
+    @FXML
+    void AfficherReservation(ActionEvent event) {
+        try {
+            FXMLLoader loader = new FXMLLoader(getClass().getResource("/AfficherReservationFXML.fxml"));
+            Parent root = loader.load();
+//            modifierReservationController.setHotelId(hotel.getId());
+            Stage stage = new Stage();
+            stage.setScene(new Scene(root));
+            stage.show();
+        } catch (IOException e) {
+            afficherAlerte(Alert.AlertType.ERROR, "Erreur", "Erreur lors du chargement de la page de modification : " + e.getMessage());
+        }
+    }
 
     @FXML
     void AjouterReservation(ActionEvent event) {
@@ -90,6 +113,23 @@ public class AddReservationFXML implements Initializable {
         } catch (SQLException e) {
             afficherAlerte(Alert.AlertType.ERROR, "Erreur SQL", e.getMessage());
         }
+        Payment p = new Payment();
+        int priceLong = (int) (Integer.parseInt(nbr.getText().replace("Total: ",""))*0.32) *100;
+        p.processPayment(priceLong);
+        webEngine.load("https://dashboard.stripe.com/test/payments");
+        StackPane root = new StackPane();
+        root.getChildren().addAll(webView);
+
+        // Create a Scene and add the StackPane to it
+        Scene scene = new Scene(root, 800, 600);
+        Stage primaryStage = new Stage();
+        // Set the Scene to the Stage
+        primaryStage.setScene(scene);
+        primaryStage.setTitle("Load Web Page on Button Click");
+        primaryStage.show();
+        //SMS ADMIN
+        ServiceReservation serviceReservation = new ServiceReservation();
+        SmsSender.SendSms("28095631","la reservation est confirmée");
 
     }
 

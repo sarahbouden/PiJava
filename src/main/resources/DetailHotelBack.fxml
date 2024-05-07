@@ -52,7 +52,7 @@
                         <Font name="Cambria Math" size="13.0" />
                      </font>
                   </Label>
-                  <Label prefHeight="25.0" prefWidth="122.0" text="Description">
+                  <Label prefHeight="25.0" prefWidth="122.0" text="Rating">
                      <font>
                         <Font name="Cambria Bold" size="14.0" />
                      </font>

@@ -63,13 +63,13 @@ public class ModifierHotelFXML {
             alert.showAndWait();
         }
         try {
-            int idh = Integer.parseInt(id.getText());
-            String nom = name.getText();
-            String loc = locat.getText();
-            String desc = description.getText();
-            String url=ftUrl.getText();
+            id.setText(String.valueOf(hotel.getId()));
+            name.setText(hotel.getName_h());
+            locat.setText(hotel.getLocation());
+            description.setText(hotel.getDescription());
+            ftUrl.setText(hotel.getPhoto_url());
 
-            Hotel hot = new Hotel(idh, nom, loc, desc,url);
+            Hotel hot = new Hotel(id, name, locat, description,ftUrl);
             ServiceHotel SR = new ServiceHotel();
             SR.modifier(hot);
         }catch (SQLException e)

@@ -25,7 +25,7 @@
                 <Image url="@bg.jpeg" />
             </image>
         </ImageView>
-        <Pane layoutX="402.0" layoutY="71.0" prefHeight="511.0" prefWidth="379.0" style="-fx-background-color: #ff760d;">
+        <Pane layoutX="402.0" layoutY="71.0" prefHeight="511.0" prefWidth="379.0" style="-fx-background-color: #ffbe8c;">
             <effect>
                 <DropShadow height="37.38" radius="15.850000000000001" width="28.02">
                     <color>
@@ -34,7 +34,7 @@
                 </DropShadow>
             </effect>
             <children>
-                <Button layoutX="133.0" layoutY="427.0" mnemonicParsing="false" onAction="#AjouterReservation" prefHeight="32.0" prefWidth="116.0" text="Enregistrer" textFill="#413852">
+                <Button layoutX="45.0" layoutY="435.0" mnemonicParsing="false" onAction="#AjouterReservation" prefHeight="32.0" prefWidth="116.0" text="Enregistrer" textFill="#413852">
                     <effect>
                         <DropShadow>
                             <color>
@@ -75,6 +75,18 @@
                   <Font size="14.0" />
                </font>
             </TextField>
+            <Button layoutX="176.0" layoutY="435.0" mnemonicParsing="false" onAction="#AfficherReservation" prefHeight="32.0" prefWidth="189.0" text="Afficher mes réservations" textFill="#413852">
+               <effect>
+                  <DropShadow>
+                     <color>
+                        <Color red="0.9894737005233765" green="0.9164236783981323" blue="0.9051851630210876" />
+                     </color>
+                  </DropShadow>
+               </effect>
+               <font>
+                  <Font name="System Bold" size="14.0" />
+               </font>
+            </Button>
             </children>
         </Pane>
         <VBox layoutX="1.0" layoutY="3.0" prefHeight="765.0" prefWidth="223.0" style="-fx-background-color: #ffffff;" styleClass="white-background" stylesheets="@style.css">

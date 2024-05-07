@@ -11,6 +11,8 @@ import utils.MyDataBase;
 import java.sql.*;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 
 
 public class ServiceHotel implements IService<Hotel> {
@@ -87,5 +89,24 @@ public class ServiceHotel implements IService<Hotel> {
             System.out.println("done");
         }
         return hotelList;
+    }
+
+    public int getCountByRating(int rating) {
+        int count = 0;
+        String query = "SELECT COUNT(*) AS count FROM hotel WHERE rating = ?";
+
+        try (PreparedStatement preparedStatement = cnx.prepareStatement(query)) {
+            preparedStatement.setInt(1, rating);
+
+            try (ResultSet resultSet = preparedStatement.executeQuery()) {
+                if (resultSet.next()) {
+                    count = resultSet.getInt("count");
+                }
+            }
+        } catch (SQLException ex) {
+            Logger.getLogger(ServiceHotel.class.getName()).log(Level.SEVERE, null, ex);
+        }
+
+        return count;
     }
 }

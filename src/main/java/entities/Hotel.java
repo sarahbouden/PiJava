@@ -1,24 +1,36 @@
 package entities;
 
+import javafx.scene.control.TextField;
+
 import java.util.List;
 
 public class Hotel {
     private int id;
     private String name_h;
     private String location;
-
-
-    public Hotel(int id, String name_h, String location, float rating, int num_h, String description, String photo_url) {
-        this.id = id;
-        this.name_h = name_h;
-        this.location = location;
-        this.description = description;
-        this.photo_url = photo_url;
-    }
-
+    private int rating;
     private String description;
     private String photo_url;
 
+    private int price;
+
+
+
+    public Hotel(int id, String name_h, String location, int rating,  String description, String photo_url, int price) {
+        this.id = id;
+        this.name_h = name_h;
+        this.location = location;
+        this.rating = rating;
+        this.description = description;
+        this.photo_url = photo_url;
+        this.price = price;
+    }
+
+
+    public Hotel(String name_h, String location, int rating,  String description, String photo_url, int price) {
+    }
+    public Hotel(String name_h, String location, int rating,  String description, String photo_url) {
+    }
 
     public Hotel() {
 
@@ -30,6 +42,11 @@ public class Hotel {
         this.photo_url = photo_url;
     }
     public Hotel(int id, String name_h, String location, String description, String photo_url) {
+    }
+
+
+
+    public Hotel(TextField id, TextField name, TextField locat, TextField description, TextField ftUrl) {
     }
 
     public List<Reservation> getReservations() {
@@ -66,7 +83,13 @@ public class Hotel {
         this.location = location;
     }
 
+    public int getRating() {
+        return rating;
+    }
 
+    public void setRating(int rating) {
+        this.rating = rating;
+    }
     public String getDescription() {
         return description;
     }
@@ -81,6 +104,14 @@ public class Hotel {
 
     public void setPhoto_url(String photo_url) {
         this.photo_url = photo_url;
+    }
+
+    public int getPrice() {
+        return price;
+    }
+
+    public void setPrice(int price) {
+        this.price = price;
     }
 
 }

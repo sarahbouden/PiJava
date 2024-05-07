@@ -21,6 +21,7 @@ import javafx.scene.control.ComboBox;
 import javafx.scene.control.DatePicker;
 import javafx.scene.control.TextField;
 import javafx.stage.Stage;
+import services.ServiceHotel;
 import services.ServiceReservation;
 
 public class ModifierReservationFXML implements Initializable {
@@ -30,10 +31,7 @@ public class ModifierReservationFXML implements Initializable {
 
     @FXML
     private URL location;
-    @FXML
-    private TextField id;
-    @FXML
-    private TextField id2;
+
 
 
     @FXML
@@ -49,20 +47,17 @@ public class ModifierReservationFXML implements Initializable {
     @FXML
     private ComboBox<String> type;
     private Reservation reservation;
-    private Hotel hotel;
-
+    private final ServiceHotel hotel= new ServiceHotel();
 
 
     @FXML
     void modifierRes(ActionEvent event) {
-        if (id.getText().isEmpty() || id2.getText().isEmpty() || dateD.getValue() == null || Datef.getValue() == null || type.getValue().isEmpty() || nbr.getText().isEmpty()) {
+        if ( dateD.getValue() == null || Datef.getValue() == null || type.getValue().isEmpty() || nbr.getText().isEmpty()) {
             // Affichez une alerte si un champ est vide
             afficherAlerte(Alert.AlertType.ERROR, "Erreur", "Veuillez remplir tous les champs.");
             return;
         }
         try {
-            int idr = Integer.parseInt(id.getText());
-            int idh = Integer.parseInt(id2.getText());
             LocalDate dated = dateD.getValue();
             LocalDate datef = Datef.getValue();
             int nombre = Integer.parseInt(nbr.getText());
@@ -86,7 +81,7 @@ public class ModifierReservationFXML implements Initializable {
                 return;
             }
 
-            Reservation Res = new Reservation(idh,  dated, datef, nombre, typer);
+            Reservation Res = new Reservation(dated, datef, nombre, typer);
             ServiceReservation SR = new ServiceReservation();
             SR.modifier(Res);
         } catch (SQLException e) {
@@ -97,13 +92,12 @@ public class ModifierReservationFXML implements Initializable {
             afficherAlerte(Alert.AlertType.ERROR, "Erreur", "Veuillez saisir des valeurs numériques valides.");
         }
     }
-    public void setHotelId(int hotelId) {
+   /* public void setHotelId(int hotelId) {
         this.hotel=hotel;
         id2.setText(String.valueOf(hotelId));
-    }
+    }*/
     public void setReservation(Reservation reservation) {
-        id.setText(String.valueOf(reservation.getId()));
-        id2.setText(String.valueOf(reservation.getId_hotel_id()));
+        Hotel hotel1= new Hotel();
         dateD.setValue(reservation.getDate_debut_r());
         Datef.setValue((reservation.getDate_fin_r()));
         nbr.setText(String.valueOf(reservation.getNbr_perso()));
@@ -144,8 +138,6 @@ public class ModifierReservationFXML implements Initializable {
         assert dateD != null : "fx:id=\"dateD\" was not injected: check your FXML file 'ModifierReservationFXML.fxml'.";
         assert nbr != null : "fx:id=\"nbr\" was not injected: check your FXML file 'ModifierReservationFXML.fxml'.";
         assert type != null : "fx:id=\"type\" was not injected: check your FXML file 'ModifierReservationFXML.fxml'.";
-        assert id != null : "fx:id=\"id\" was not injected: check your FXML file 'ModifierReservationFXML.fxml'.";
-        assert id2 != null : "fx:id=\"id2\" was not injected: check your FXML file 'ModifierReservationFXML.fxml'.";
 
     }
     @Override
