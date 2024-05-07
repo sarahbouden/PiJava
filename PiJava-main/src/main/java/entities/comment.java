@@ -1,5 +1,6 @@
 package entities;
 
+import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
 
@@ -8,32 +9,39 @@ public class comment {
     private String content;
     private Date created_at;
     private List<User> participants;
-    private List<Activite> activity;
+    private List<Activite> activites_id;
 
-    public comment(int id, String content, Date created_at, List<User> participants, List<Activite> activity) {
+    public comment(int id, String content, Date created_at, List<User> participants, List<Activite> activites_id) {
         this.id = id;
         this.content = content;
         this.created_at = created_at;
         this.participants = participants;
-        this.activity = activity;
+        this.activites_id = activites_id;
     }
 
-    public comment(String content, Date created_at, List<User> participants, List<Activite> activity) {
+    public comment(String content, Date created_at, List<User> participants, List<Activite> activites_id) {
         this.content = content;
         this.created_at = created_at;
         this.participants = participants;
-        this.activity = activity;
+        this.activites_id = activites_id;
     }
 
     public comment() {
     }
-
-    public List<Activite> getActivity() {
-        return activity;
+    public Activite getActivite() {
+        if (activites_id != null && !activites_id.isEmpty()) {
+            return activites_id.get(0); // Retourne la première activité de la liste
+        } else {
+            return null; // Retourne null si la liste des activités est vide ou nulle
+        }
     }
 
-    public void setActivity(List<Activite> activity) {
-        this.activity = activity;
+    public List<Activite> getActivites_id() {
+        return activites_id;
+    }
+
+    public void setActivity(List<Activite> activites_id) {
+        this.activites_id = activites_id;
     }
 
     public List<User> getParticipants() {
@@ -68,14 +76,9 @@ public class comment {
         this.created_at = created_at;
     }
 
+
     @Override
     public String toString() {
-        return "comment{" +
-                "id=" + id +
-                ", content='" + content + '\'' +
-                ", created_at=" + created_at +
-                ", participants=" + participants +
-                ", activity=" + activity +
-                '}';
+        return content;
     }
 }

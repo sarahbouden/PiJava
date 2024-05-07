@@ -57,6 +57,7 @@
 
             <!-- Liste des commentaires -->
             <ListView fx:id="commentList" prefHeight="200.0" prefWidth="200.0" />
+
             <!-- Formulaire de commentaire -->
             <TextArea fx:id="commentArea" prefHeight="58.0" prefWidth="885.0" promptText="Ajouter un commentaire..." />
          </children>

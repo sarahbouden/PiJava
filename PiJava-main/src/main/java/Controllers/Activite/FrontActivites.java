@@ -1,11 +1,13 @@
 package Controllers.Activite;
 
 import entities.Activite;
-import entities.comment;
+import javafx.collections.FXCollections;
+import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.scene.Parent;
 
 import javafx.scene.Scene;
+import javafx.scene.control.ComboBox;
 import javafx.scene.layout.BorderPane;
 import javafx.stage.Stage;
 import services.ServiceActivite;
@@ -22,6 +24,7 @@ import java.net.URL;
 import java.sql.SQLException;
 import java.util.List;
 import java.util.ResourceBundle;
+import java.util.stream.Collectors;
 
 public class FrontActivites  {
 
@@ -31,6 +34,8 @@ public class FrontActivites  {
     private HBox BoxAct;
     @FXML
     private BorderPane borderPane;
+    @FXML
+    private ComboBox<String> stateFilterComboBox;
     private ServiceActivite serviceActivite = new ServiceActivite();
 
 
@@ -45,8 +50,6 @@ public class FrontActivites  {
         {
             try
             {
-
-
                 // Charge chaque carte des services et l'ajoute au GridPane
                 FXMLLoader loader = new FXMLLoader(getClass().getResource("/Card.fxml"));
                 HBox box = loader.load();
@@ -96,6 +99,7 @@ public class FrontActivites  {
     public void initialize() {
         try {
             loadArticles();
+            initializeFilters();
         } catch (SQLException e) {
             throw new RuntimeException(e);
         }
@@ -107,9 +111,7 @@ public class FrontActivites  {
 
             // Pass data to the DetailViewController
             DetailActivite controller = loader.getController();
-            ServiceComment serviceComment = new ServiceComment();
-            List<comment> comments = serviceComment.getCommentsByActivity(activite);
-            controller.initialize(activite.getNom_act(), activite.getImage_name(), activite.getDescription_act(), activite.getType_act(), activite.getLocation_act(), activite.getChallenges(), comments);
+            controller.initialize(activite);
 
             Stage stage = new Stage();
             stage.setScene(new Scene(root));
@@ -119,4 +121,47 @@ public class FrontActivites  {
         }
     }
 
+
+    private void initializeFilters() {
+        ObservableList<String> statesList = FXCollections.observableArrayList(
+                "Ariana", "Beja", "Ben Arous", "Bizerte", "Gabes", "Gafsa", "Jendouba",
+                "Kairouan", "Kasserine", "Kebili", "Kef", "Mahdia", "Manouba", "Medenine",
+                "Monastir", "Nabeul", "Sfax", "Sidi Bouzid", "Siliana", "Sousse", "Tataouine",
+                "Tozeur", "Tunis", "Zaghouan"
+        );
+        stateFilterComboBox.setItems(statesList);
+    }
+    @FXML
+    private void applyFilters(ActionEvent event) throws SQLException {
+        String selectedState = stateFilterComboBox.getValue();
+
+        List<Activite> filteredActivities = serviceActivite.afficher();
+
+        if (selectedState != null && !selectedState.isEmpty()) {
+            filteredActivities = filteredActivities.stream()
+                    .filter(activity -> activity.getLocation_act().equalsIgnoreCase(selectedState))
+                    .collect(Collectors.toList());
+        }
+
+
+
+        BoxAct.getChildren().clear();
+
+        for (Activite activity : filteredActivities) {
+            loadCard(activity);
+        }
+    }
+
+    private void loadCard(Activite activite) {
+        try {
+            FXMLLoader loader = new FXMLLoader(getClass().getResource("/Card.fxml"));
+            HBox box = loader.load();
+            CardController controller = loader.getController();
+            controller.setService(activite);
+            box.setOnMouseClicked(event -> handleCardClick(activite));
+            BoxAct.getChildren().add(box);
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+    }
 }

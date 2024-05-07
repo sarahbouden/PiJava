@@ -1,7 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import java.lang.String?>
+<?import javafx.collections.FXCollections?>
 <?import javafx.geometry.Insets?>
 <?import javafx.scene.control.Button?>
+<?import javafx.scene.control.ComboBox?>
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.control.ListView?>
 <?import javafx.scene.control.Separator?>
@@ -63,11 +66,36 @@
                         <Font size="14.0" />
                     </font>
                 </TextField>
-                <TextField fx:id="locationAct" layoutX="59.0" layoutY="197.0" nodeOrientation="LEFT_TO_RIGHT" prefHeight="29.0" prefWidth="262.0" promptText="Location">
-                    <font>
-                        <Font size="14.0" />
-                    </font>
-                </TextField>
+                <ComboBox fx:id="stateComboBox" layoutX="60.0" layoutY="197.0" prefHeight="32.0" prefWidth="262.0" promptText="Select governorate">
+                    <items>
+                        <FXCollections fx:factory="observableArrayList">
+                            <String fx:value="Ariana" />
+                            <String fx:value="Beja" />
+                            <String fx:value="Ben Arous" />
+                            <String fx:value="Bizerte" />
+                            <String fx:value="Gabes" />
+                            <String fx:value="Gafsa" />
+                            <String fx:value="Jendouba" />
+                            <String fx:value="Kairouan" />
+                            <String fx:value="Kasserine" />
+                            <String fx:value="Kebili" />
+                            <String fx:value="Kef" />
+                            <String fx:value="Mahdia" />
+                            <String fx:value="Manouba" />
+                            <String fx:value="Medenine" />
+                            <String fx:value="Monastir" />
+                            <String fx:value="Nabeul" />
+                            <String fx:value="Sfax" />
+                            <String fx:value="Sidi Bouzid" />
+                            <String fx:value="Siliana" />
+                            <String fx:value="Sousse" />
+                            <String fx:value="Tataouine" />
+                            <String fx:value="Tozeur" />
+                            <String fx:value="Tunis" />
+                            <String fx:value="Zaghouan" />
+                        </FXCollections>
+                    </items>
+                </ComboBox>
                 <TextField fx:id="description" layoutX="59.0" layoutY="241.0" nodeOrientation="LEFT_TO_RIGHT" prefHeight="29.0" prefWidth="262.0" promptText="Description">
                     <font>
                         <Font size="14.0" />
@@ -98,9 +126,9 @@
                </font>
             </Button>
             <TextField fx:id="selectedChallange" layoutX="60.0" layoutY="283.0" prefHeight="106.0" prefWidth="262.0" />
+              <ListView fx:id="selectCh" layoutX="59.0" layoutY="283.0" prefHeight="106.0" prefWidth="262.0" />
             </children>
         </Pane>
-        <ListView fx:id="selectCh" layoutX="391.0" layoutY="20.0" prefHeight="106.0" prefWidth="262.0" />
         <VBox layoutY="-7.0" prefHeight="771.0" prefWidth="223.0" style="-fx-background-color: #FFFFFF;" styleClass="white-background">
             <children>
                 <Separator prefWidth="232.0" />

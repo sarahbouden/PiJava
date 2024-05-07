@@ -15,8 +15,7 @@ import javafx.fxml.FXMLLoader;
 import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
-import javafx.scene.control.ListView;
-import javafx.scene.control.SelectionMode;
+import javafx.scene.control.*;
 import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.stage.FileChooser;
 import javafx.stage.Stage;
@@ -26,8 +25,6 @@ import java.io.IOException;
 import entities.Activite;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
-import javafx.scene.control.Alert;
-import javafx.scene.control.TextField;
 import javafx.stage.Window;
 import services.ServiceActivite;
 import services.ServiceChallenge;
@@ -44,7 +41,7 @@ public class AjouterActiviteController {
     private TextField img;
 
     @FXML
-    private TextField locationAct;
+    private ComboBox<String> stateComboBox;
     @FXML
     private ListView<Challenge> selectCh;
 
@@ -97,7 +94,7 @@ public class AjouterActiviteController {
         String nom = Name.getText();
         String desc = description.getText();
         String image = img.getText();
-        String lieu = locationAct.getText();
+        String lieu = stateComboBox.getValue();
         String categorie = type.getText();
 
         // Vérifier si tous les champs sont remplis
@@ -195,9 +192,9 @@ public class AjouterActiviteController {
             img.setStyle("-fx-border-color: red ; -fx-border-width: 2px ;");
             applyShakeAnimation(img);
         }
-        if (locationAct.getText().isEmpty()) {
-            locationAct.setStyle("-fx-border-color: red ; -fx-border-width: 2px ;");
-            applyShakeAnimation(locationAct);
+        if (stateComboBox.getValue() == null) {
+            stateComboBox.setStyle("-fx-border-color: red ; -fx-border-width: 2px ;");
+            applyShakeAnimation(stateComboBox.getEditor());
         }
         if (type.getText().isEmpty()) {
             type.setStyle("-fx-border-color: red ; -fx-border-width: 2px ;");
