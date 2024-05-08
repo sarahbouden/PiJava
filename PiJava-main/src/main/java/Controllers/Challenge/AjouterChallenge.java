@@ -6,6 +6,7 @@ import java.time.LocalDate;
 import java.util.Date;
 import java.util.ResourceBundle;
 
+import animatefx.animation.Shake;
 import entities.Activite;
 import entities.Challenge;
 import javafx.event.ActionEvent;
@@ -48,6 +49,7 @@ public class AjouterChallenge {
 
         // Vérifier si tous les champs sont remplis
         if (titre.isEmpty() || objectifs.isEmpty() || dateDebut == null || dateFin == null) {
+            shakeEmptyFields();
             // Afficher un message d'erreur ou gérer le cas où un champ est vide
             // Par exemple :
             Alert alert = new Alert(Alert.AlertType.ERROR);
@@ -96,6 +98,34 @@ public class AjouterChallenge {
         } else {
             System.out.println("Please select both start and end dates.");
         }
+    }
+    private void shakeEmptyFields() {
+        if (Titre.getText().isEmpty()) {
+            Titre.setStyle("-fx-border-color: red ; -fx-border-width: 2px ;");
+            applyShakeAnimation(Titre);
+        }
+        if (Date_Debut.getValue() == null) {
+            // Si aucune date n'est sélectionnée
+            Date_Debut.setStyle("-fx-border-color: red ; -fx-border-width: 2px ;");
+            applyShakeAnimation(Date_Debut.getEditor());
+        }
+        if (Objectifs.getText().isEmpty()) {
+            Objectifs.setStyle("-fx-border-color: red ; -fx-border-width: 2px ;");
+            applyShakeAnimation(Objectifs);
+        }
+
+        if (Date_Fin.getValue() == null) {
+            // Si aucune date n'est sélectionnée
+            Date_Fin.setStyle("-fx-border-color: red ; -fx-border-width: 2px ;");
+            applyShakeAnimation(Date_Fin.getEditor());
+        }
+    }
+
+    // Méthode pour appliquer l'animation Shake à un champ spécifique
+    private void applyShakeAnimation(TextField textField) {
+        Shake shake = new Shake(textField);
+        shake.setResetOnFinished(true);
+        shake.play();
     }
 
 

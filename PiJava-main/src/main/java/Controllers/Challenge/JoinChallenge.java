@@ -1,5 +1,6 @@
 package Controllers.Challenge;
 
+import animatefx.animation.Shake;
 import javafx.fxml.FXML;
 import javafx.scene.control.Alert;
 import javafx.scene.control.TextField;
@@ -27,6 +28,7 @@ public class JoinChallenge {
         String phoneNumber = phoneNumberTextField.getText();
         String name = nameTextField.getText();
         String cin = cinTextField.getText();
+        shakeEmptyFields();
 
         // Construct message with event name
         String message = String.format("Thank you, %s, for joining ! Your ID card number is %s.", name, cin);
@@ -44,5 +46,27 @@ public class JoinChallenge {
         alert.setHeaderText(null);
         alert.setContentText(message);
         alert.showAndWait();
+    }
+    private void shakeEmptyFields() {
+        if (phoneNumberTextField.getText().isEmpty()) {
+            phoneNumberTextField.setStyle("-fx-border-color: red ; -fx-border-width: 2px ;");
+            applyShakeAnimation(phoneNumberTextField);
+        }
+        if (nameTextField.getText().isEmpty()) {
+            nameTextField.setStyle("-fx-border-color: red ; -fx-border-width: 2px ;");
+            applyShakeAnimation(nameTextField);
+        }
+        if (cinTextField.getText().isEmpty()) {
+            cinTextField.setStyle("-fx-border-color: red ; -fx-border-width: 2px ;");
+            applyShakeAnimation(cinTextField);
+        }
+
+    }
+
+    // Méthode pour appliquer l'animation Shake à un champ spécifique
+    private void applyShakeAnimation(TextField textField) {
+        Shake shake = new Shake(textField);
+        shake.setResetOnFinished(true);
+        shake.play();
     }
 }
