@@ -3,17 +3,20 @@ package Controllers.Activite;
 import java.io.File;
 import java.net.URL;
 import java.sql.SQLException;
+import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
 import java.util.ResourceBundle;
 import java.time.Duration;
 import java.time.LocalDateTime;
 import java.time.ZoneId;
+
 import entities.Activite;
 import entities.Challenge;
 import entities.comment;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
+import javafx.scene.control.Alert;
 import javafx.scene.control.Label;
 import javafx.scene.control.ListView;
 import javafx.scene.control.TextArea;
@@ -25,6 +28,7 @@ public class DetailActivite {
     public void setActivite(Activite activite) {
         this.activite = activite;
     }
+
     @FXML
     private ListView<String> commentList;
 
@@ -42,7 +46,6 @@ public class DetailActivite {
     private TextArea commentArea;
 
 
-
     @FXML
     private ImageView img;
 
@@ -57,10 +60,13 @@ public class DetailActivite {
     private Activite activite;
     private final ServiceComment serviceComment = new ServiceComment();
 
-
+    List<String> badWords = new ArrayList<>();
 
 
     public void initialize(Activite activite) {
+
+        ajouterBadWord("esprit");
+        ajouterBadWord("hello");
         // Set the activite object to the class variable
         this.activite = activite;
 
@@ -79,6 +85,20 @@ public class DetailActivite {
         // Display comments
         afficherCommentairesActivite(activite);
     }
+    // Méthode pour ajouter un mot interdit
+    public void ajouterBadWord(String word) {
+        badWords.add(word);
+    }
+
+    // Méthode pour filtrer les commentaires
+    private String filtrerCommentaire(String commentContent) {
+        for (String word : badWords) {
+            if (commentContent.contains(word)) {
+                commentContent = commentContent.replace(word, "*******");
+            }
+        }
+        return commentContent;
+    }
 
 /*  // Affichage des challenges dans le label
         StringBuilder challengesText = new StringBuilder();
@@ -91,6 +111,15 @@ public class DetailActivite {
     void handleCommentSubmit(ActionEvent event) {
         // Récupérer le contenu du commentaire depuis la zone de texte
         String commentContent = commentArea.getText();
+        commentContent = filtrerCommentaire(commentContent);
+//                Alert alert = new Alert(Alert.AlertType.ERROR);
+//                alert.setTitle("Erreur");
+//                alert.setContentText("Erreur lors de l'insertion de l'activité : ");
+//                alert.show();
+//                return;
+
+
+
 
         // Créer un nouvel objet de commentaire avec le contenu, la date actuelle et l'activite_id
         comment newComment = new comment();
@@ -134,6 +163,7 @@ public class DetailActivite {
             return "il y a " + minutes + " minute(s)";
         }
     }
+
     public void afficherCommentairesActivite(Activite activite) {
         // Récupérer les commentaires de l'activité spécifique depuis la base de données
         List<comment> comments = serviceComment.getCommentsByActivity(activite);
@@ -148,10 +178,6 @@ public class DetailActivite {
             commentList.getItems().add(String.valueOf(comment));
         }
     }
-
-
-
-
 
 
 }

@@ -49,11 +49,6 @@
                   <Insets right="150.0" />
                </VBox.margin>
             </Label>
-            <Label fx:id="challenge" layoutX="309.0" layoutY="543.0" prefHeight="21.0" prefWidth="105.0" text="Challenge">
-               <font>
-                  <Font name="System Bold" size="15.0" />
-               </font>
-            </Label>
 
             <!-- Liste des commentaires -->
             <ListView fx:id="commentList" prefHeight="200.0" prefWidth="200.0" />

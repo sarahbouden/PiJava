@@ -102,9 +102,5 @@ public class ServiceComment implements IService<comment> {
         }
         return comments;
     }
-
-
-
-
 }
 
