@@ -40,7 +40,7 @@ public class CardController {
 
     private Activite activite;
 
-    private String[] Colors = {"#abb3ff", "#bfc5ff", "#b0beff"};
+    private String[] Colors = {" #ffbe8a", " #ffbe8a", "#ffbe8a"};
 
 
 

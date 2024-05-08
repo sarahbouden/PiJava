@@ -18,7 +18,7 @@ public class MainFX extends Application {
     @Override
     public void start(Stage primaryStage) {
         try {
-          FXMLLoader loader = new FXMLLoader(getClass().getResource("/ListeDesChallengeFront.fxml"));
+          FXMLLoader loader = new FXMLLoader(getClass().getResource("/ListeDesActivitesFront.fxml"));
         //  FXMLLoader loader = new FXMLLoader(getClass().getResource("/ListeDesActivitesFront.fxml"));
         //FXMLLoader loader = new FXMLLoader(getClass().getResource("/chart.fxml"));
             Parent root = loader.load();
